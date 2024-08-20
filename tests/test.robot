@@ -55,11 +55,6 @@ Open Browser To Login Page
     Open Browser    ${LOGIN_URL}    ${BROWSER}
     Maximize Browser Window
 
-Input Username And Password
-    [Arguments]    ${username}    ${password}
-    Input Text    id=UserName    ${username}
-    Input Text    id=Password    ${password}
-
 
 Submit Login Form
     Click Button    xpath=//button[@type='submit']
@@ -71,22 +66,13 @@ Verify Login Success
     Wait Until Page Contains Element    xpath=//div[@class='Main_Menu']    10 seconds
 
 
-Get From Dictionary
-    [Arguments]    ${dictionary}    ${key}
-    ${value}=    Evaluate    ${dictionary}[${key}]
-    [Return]    ${value}
-
-Initialize Credentials Reader
-    [Arguments]    ${file_path}
-    #Import Library  ../SMS_App_Automation/shared/credentials_reader.py
-    Set Global Variable    ${credentials_reader}    ${file_path}
 
 Perform Login
     [Arguments]    ${username}    ${password}
     # Your login logic here
     Input Text    id=UserName    ${username}
     Input Text    id=Password    ${password}
-    #Click Button    xpath=//button[@type='submit']
+
 
 
 
