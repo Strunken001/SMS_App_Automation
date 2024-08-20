@@ -52,7 +52,13 @@ User Can Login Successfully
 
 *** Keywords ***
 Open Browser To Login Page
-    Open Browser    ${LOGIN_URL}    ${BROWSER}
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --disable-gpu
+    Call Method    ${options}    add_argument    --no-sandbox
+    #Call Method    ${options}    add_argument    --window-size=1920,1080
+    Open Browser    ${LOGIN_URL}    ${BROWSER}  options=${options}
+
     Maximize Browser Window
 
 
