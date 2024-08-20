@@ -12,13 +12,16 @@ Library    ../shared/CredentialsReader.py
 ${LOGIN_URL}    http://164.52.223.184/
 ${BROWSER}      Chrome
 ${CREDENTIALS_FILE}     ../SMS_App_Automation/shared/resources/credentials.csv
-${CONFIG_FILE}  ../SMS_App_Automation/shared/resources/smsconfig.properties
+${ENVIRONMENT_WORKSPACE}    %WORKSPACE%
+${WORKSPACE}    ${ENVIRONMENT_WORKSPACE}
+${CONFIG_FILE}  ${WORKSPACE}/SMS_App_Automation/shared/resources/smsconfig.properties
 ${file_path}    ../SMS_App_Automation/shared/resources/smsconfig.properties
 ${KEY_SENDER_ID}    sender_id
 *** Test Cases ***
 User Can Login Successfully
 
-
+        ${config}=    Read Config    ${CONFIG_FILE}
+        Log    ${config}
         FOR    ${i}    IN RANGE    4
             Open Browser To Login Page
             Load Credentials
@@ -78,6 +81,11 @@ Perform Login
     # Your login logic here
     Input Text    id=UserName    ${username}
     Input Text    id=Password    ${password}
+
+Read Config
+    [Arguments]    ${path}
+    ${content}=    Get File    ${path}
+    [Return]    ${content}
 
 
 
