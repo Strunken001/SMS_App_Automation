@@ -12,8 +12,8 @@ Library    ../shared/CredentialsReader.py
 ${LOGIN_URL}    http://164.52.223.184/
 ${BROWSER}      Chrome
 ${CREDENTIALS_FILE}     ../SMS_App_Automation/shared/resources/credentials.csv
-${ENVIRONMENT_WORKSPACE}
-${WORKSPACE}    ${ENVIRONMENT_WORKSPACE}
+#${ENVIRONMENT_WORKSPACE}
+${WORKSPACE}    ${ENV:WORKSPACE}
 ${CONFIG_FILE}  ${WORKSPACE}/SMS_App_Automation/shared/resources/smsconfig.properties
 ${file_path}    ../SMS_App_Automation/shared/resources/smsconfig.properties
 ${KEY_SENDER_ID}    sender_id
