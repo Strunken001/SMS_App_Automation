@@ -13,7 +13,7 @@ ${LOGIN_URL}    http://164.52.223.184/
 ${BROWSER}      Chrome
 ${CREDENTIALS_FILE}     ../SMS_App_Automation/shared/resources/credentials.csv
 ${WORKSPACE}
-${CONFIG_FILE}  /shared/resources/smsconfig.properties
+${CONFIG_FILE}  ${WORKSPACE}/shared/resources/smsconfig.properties
 ${file_path}    ../SMS_App_Automation/shared/resources/smsconfig.properties
 ${KEY_SENDER_ID}    sender_id
 *** Test Cases ***
