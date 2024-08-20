@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.10.0 on win32)" generated="2024-08-20T00:46:25.934845" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="C:\Users\since\PycharmProjects\SMS_App_Automation\tests\test.robot">
+<test id="s1-t1" name="User Can Login Successfully" line="19">
+<for flavor="IN RANGE">
+<iter>
+<kw name="Open Browser To Login Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:26.319160" level="INFO">Opening browser 'Chrome' to base url 'http://164.52.223.184/'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-08-20T00:46:26.318218" elapsed="7.569752"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-08-20T00:46:33.887970" elapsed="0.030315"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:46:26.317212" elapsed="7.601073"/>
+</kw>
+<kw name="Load Credentials" owner="CredentialsReader">
+<status status="PASS" start="2024-08-20T00:46:33.918285" elapsed="0.000504"/>
+</kw>
+<kw name="Get Next Credential" owner="CredentialsReader">
+<msg time="2024-08-20T00:46:33.919320" level="INFO">${credential} = {'username': 'AutoTestBulkSMSNigeria', 'password': 'Asdf@1234'}</msg>
+<var>${credential}</var>
+<status status="PASS" start="2024-08-20T00:46:33.919320" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-20T00:46:33.919868" level="INFO">Username: AutoTestBulkSMSNigeria Password: Asdf@1234</msg>
+<arg>Username: ${credential['username']} Password: ${credential['password']}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-20T00:46:33.919320" elapsed="0.001088"/>
+</kw>
+<kw name="Perform Login">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:33.921455" level="INFO">Typing text 'AutoTestBulkSMSNigeria' into text field 'id=UserName'.</msg>
+<arg>id=UserName</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:46:33.920932" elapsed="0.062709"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:33.984642" level="INFO">Typing text 'Asdf@1234' into text field 'id=Password'.</msg>
+<arg>id=Password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:46:33.984642" elapsed="0.045949"/>
+</kw>
+<arg>${credential['username']}</arg>
+<arg>${credential['password']}</arg>
+<status status="PASS" start="2024-08-20T00:46:33.920408" elapsed="0.110710"/>
+</kw>
+<kw name="Submit Login Form">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:34.031645" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:46:34.031118" elapsed="4.198415"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:46:34.031118" elapsed="4.198415"/>
+</kw>
+<kw name="Verify Login Success">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//div[@class='Main_Menu']</arg>
+<arg>10 seconds</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-08-20T00:46:38.230052" elapsed="0.007835"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:46:38.229533" elapsed="0.008354"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:38.238409" level="INFO">Clicking element 'xpath=//a[contains(@href, '/Management/ComposeSMS')]'.</msg>
+<arg>xpath=//a[contains(@href, '/Management/ComposeSMS')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:46:38.237887" elapsed="3.304354"/>
+</kw>
+<kw name="Load Properties" owner="PropertiesLibrary">
+<arg>${file_path}</arg>
+<status status="PASS" start="2024-08-20T00:46:41.542241" elapsed="0.000527"/>
+</kw>
+<kw name="Get Key" owner="PropertiesLibrary">
+<msg time="2024-08-20T00:46:41.542768" level="INFO">${sender_id} = Bullion</msg>
+<var>${sender_id}</var>
+<arg>sender_id</arg>
+<status status="PASS" start="2024-08-20T00:46:41.542768" elapsed="0.000000"/>
+</kw>
+<kw name="Get Key" owner="PropertiesLibrary">
+<msg time="2024-08-20T00:46:41.543773" level="INFO">${contact_number} = 2347068526306,2347052049544,2349078737496,2348090653681</msg>
+<var>${contact_number}</var>
+<arg>contact_number</arg>
+<status status="PASS" start="2024-08-20T00:46:41.542768" elapsed="0.001005"/>
+</kw>
+<kw name="Get Key" owner="PropertiesLibrary">
+<msg time="2024-08-20T00:46:41.543773" level="INFO">${message} = Text Message for the SMS WEB APP From Automated Test Script</msg>
+<var>${message}</var>
+<arg>message</arg>
+<status status="PASS" start="2024-08-20T00:46:41.543773" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-20T00:46:46.549177" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-20T00:46:41.544317" elapsed="5.004860"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:46.550173" level="INFO">Typing text 'Bullion' into text field 'id=SenderId'.</msg>
+<arg>id=SenderId</arg>
+<arg>${sender_id}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:46:46.549177" elapsed="0.051586"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:46.601762" level="INFO">Typing text '2347068526306,2347052049544,2349078737496,2348090653681' into text field 'id=ContactNumber'.</msg>
+<arg>id=ContactNumber</arg>
+<arg>${contact_number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:46:46.600763" elapsed="0.191655"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:46.793416" level="INFO">Typing text 'Text Message for the SMS WEB APP From Automated Test Script' into text field 'id=Message'.</msg>
+<arg>id=Message</arg>
+<arg>${message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:46:46.793416" elapsed="0.075526"/>
+</kw>
+<kw name="Send Form">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:46.870004" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(text(), 'Send')]'.</msg>
+<arg>xpath=//button[@type='submit' and contains(text(), 'Send')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:46:46.870004" elapsed="0.234692"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:46:46.869470" elapsed="0.235757"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-20T00:46:52.112039" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-20T00:46:47.105227" elapsed="5.006812"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:52.113045" level="INFO">Clicking element 'xpath=//div[contains(@class, 'modal-footer')]//button[contains(text(), 'Send')]'.</msg>
+<arg>xpath=//div[contains(@class, 'modal-footer')]//button[contains(text(), 'Send')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:46:52.112039" elapsed="0.026912"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-08-20T00:46:52.138951" elapsed="2.128769"/>
+</kw>
+<var name="${i}">0</var>
+<status status="PASS" start="2024-08-20T00:46:26.317212" elapsed="27.950508"/>
+</iter>
+<iter>
+<kw name="Open Browser To Login Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:46:54.269757" level="INFO">Opening browser 'Chrome' to base url 'http://164.52.223.184/'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-08-20T00:46:54.268752" elapsed="7.807021"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-08-20T00:47:02.076307" elapsed="0.025347"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:46:54.268752" elapsed="7.833903"/>
+</kw>
+<kw name="Load Credentials" owner="CredentialsReader">
+<status status="PASS" start="2024-08-20T00:47:02.102655" elapsed="0.000000"/>
+</kw>
+<kw name="Get Next Credential" owner="CredentialsReader">
+<msg time="2024-08-20T00:47:02.103655" level="INFO">${credential} = {'username': 'AutoTestRouteMobile', 'password': 'Asdf@1234'}</msg>
+<var>${credential}</var>
+<status status="PASS" start="2024-08-20T00:47:02.102655" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-20T00:47:02.103655" level="INFO">Username: AutoTestRouteMobile Password: Asdf@1234</msg>
+<arg>Username: ${credential['username']} Password: ${credential['password']}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-20T00:47:02.103655" elapsed="0.000000"/>
+</kw>
+<kw name="Perform Login">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:02.105670" level="INFO">Typing text 'AutoTestRouteMobile' into text field 'id=UserName'.</msg>
+<arg>id=UserName</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:02.104655" elapsed="0.105110"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:02.210311" level="INFO">Typing text 'Asdf@1234' into text field 'id=Password'.</msg>
+<arg>id=Password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:02.209765" elapsed="0.065745"/>
+</kw>
+<arg>${credential['username']}</arg>
+<arg>${credential['password']}</arg>
+<status status="PASS" start="2024-08-20T00:47:02.104655" elapsed="0.170855"/>
+</kw>
+<kw name="Submit Login Form">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:02.276508" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:02.276508" elapsed="3.569614"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:47:02.275510" elapsed="3.571140"/>
+</kw>
+<kw name="Verify Login Success">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//div[@class='Main_Menu']</arg>
+<arg>10 seconds</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-08-20T00:47:05.847173" elapsed="0.007558"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:47:05.846650" elapsed="0.008081"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:05.855255" level="INFO">Clicking element 'xpath=//a[contains(@href, '/Management/ComposeSMS')]'.</msg>
+<arg>xpath=//a[contains(@href, '/Management/ComposeSMS')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:05.855255" elapsed="3.811138"/>
+</kw>
+<kw name="Load Properties" owner="PropertiesLibrary">
+<arg>${file_path}</arg>
+<status status="PASS" start="2024-08-20T00:47:09.666393" elapsed="0.001169"/>
+</kw>
+<kw name="Get Key" owner="PropertiesLibrary">
+<msg time="2024-08-20T00:47:09.667562" level="INFO">${sender_id} = Bullion</msg>
+<var>${sender_id}</var>
+<arg>sender_id</arg>
+<status status="PASS" start="2024-08-20T00:47:09.667562" elapsed="0.000000"/>
+</kw>
+<kw name="Get Key" owner="PropertiesLibrary">
+<msg time="2024-08-20T00:47:09.668066" level="INFO">${contact_number} = 2347068526306,2347052049544,2349078737496,2348090653681</msg>
+<var>${contact_number}</var>
+<arg>contact_number</arg>
+<status status="PASS" start="2024-08-20T00:47:09.668066" elapsed="0.000000"/>
+</kw>
+<kw name="Get Key" owner="PropertiesLibrary">
+<msg time="2024-08-20T00:47:09.668066" level="INFO">${message} = Text Message for the SMS WEB APP From Automated Test Script</msg>
+<var>${message}</var>
+<arg>message</arg>
+<status status="PASS" start="2024-08-20T00:47:09.668066" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-20T00:47:14.680801" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-20T00:47:09.668586" elapsed="5.012437"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:14.681530" level="INFO">Typing text 'Bullion' into text field 'id=SenderId'.</msg>
+<arg>id=SenderId</arg>
+<arg>${sender_id}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:14.681023" elapsed="0.063962"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:14.745987" level="INFO">Typing text '2347068526306,2347052049544,2349078737496,2348090653681' into text field 'id=ContactNumber'.</msg>
+<arg>id=ContactNumber</arg>
+<arg>${contact_number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:14.745987" elapsed="0.192834"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:14.938821" level="INFO">Typing text 'Text Message for the SMS WEB APP From Automated Test Script' into text field 'id=Message'.</msg>
+<arg>id=Message</arg>
+<arg>${message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:14.938821" elapsed="0.184072"/>
+</kw>
+<kw name="Send Form">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:15.123892" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(text(), 'Send')]'.</msg>
+<arg>xpath=//button[@type='submit' and contains(text(), 'Send')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:15.123892" elapsed="0.128836"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:47:15.122893" elapsed="0.130834"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-20T00:47:20.268951" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-20T00:47:15.253727" elapsed="5.015224"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:20.268951" level="INFO">Clicking element 'xpath=//div[contains(@class, 'modal-footer')]//button[contains(text(), 'Send')]'.</msg>
+<arg>xpath=//div[contains(@class, 'modal-footer')]//button[contains(text(), 'Send')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:20.268951" elapsed="0.032275"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-08-20T00:47:20.301757" elapsed="2.159450"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2024-08-20T00:46:54.268752" elapsed="28.192455"/>
+</iter>
+<iter>
+<kw name="Open Browser To Login Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:22.462208" level="INFO">Opening browser 'Chrome' to base url 'http://164.52.223.184/'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-08-20T00:47:22.462208" elapsed="7.739304"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-08-20T00:47:30.201512" elapsed="0.033989"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:47:22.462208" elapsed="7.774294"/>
+</kw>
+<kw name="Load Credentials" owner="CredentialsReader">
+<status status="PASS" start="2024-08-20T00:47:30.236502" elapsed="0.000000"/>
+</kw>
+<kw name="Get Next Credential" owner="CredentialsReader">
+<msg time="2024-08-20T00:47:30.237502" level="INFO">${credential} = {'username': 'AutoTestRMLMTN', 'password': 'Asdf@1234'}</msg>
+<var>${credential}</var>
+<status status="PASS" start="2024-08-20T00:47:30.236502" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-20T00:47:30.238502" level="INFO">Username: AutoTestRMLMTN Password: Asdf@1234</msg>
+<arg>Username: ${credential['username']} Password: ${credential['password']}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-20T00:47:30.237502" elapsed="0.001000"/>
+</kw>
+<kw name="Perform Login">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:30.239502" level="INFO">Typing text 'AutoTestRMLMTN' into text field 'id=UserName'.</msg>
+<arg>id=UserName</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:30.238502" elapsed="0.087772"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:30.326274" level="INFO">Typing text 'Asdf@1234' into text field 'id=Password'.</msg>
+<arg>id=Password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:30.326274" elapsed="0.063621"/>
+</kw>
+<arg>${credential['username']}</arg>
+<arg>${credential['password']}</arg>
+<status status="PASS" start="2024-08-20T00:47:30.238502" elapsed="0.151393"/>
+</kw>
+<kw name="Submit Login Form">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:30.390897" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:30.390897" elapsed="3.740180"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:47:30.390897" elapsed="3.740713"/>
+</kw>
+<kw name="Verify Login Success">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//div[@class='Main_Menu']</arg>
+<arg>10 seconds</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-08-20T00:47:34.131815" elapsed="0.006920"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:47:34.131815" elapsed="0.007446"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:34.139261" level="INFO">Clicking element 'xpath=//a[contains(@href, '/Management/ComposeSMS')]'.</msg>
+<arg>xpath=//a[contains(@href, '/Management/ComposeSMS')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:34.139261" elapsed="4.647467"/>
+</kw>
+<kw name="Load Properties" owner="PropertiesLibrary">
+<arg>${file_path}</arg>
+<status status="PASS" start="2024-08-20T00:47:38.787237" elapsed="0.000540"/>
+</kw>
+<kw name="Get Key" owner="PropertiesLibrary">
+<msg time="2024-08-20T00:47:38.787777" level="INFO">${sender_id} = Bullion</msg>
+<var>${sender_id}</var>
+<arg>sender_id</arg>
+<status status="PASS" start="2024-08-20T00:47:38.787777" elapsed="0.000524"/>
+</kw>
+<kw name="Get Key" owner="PropertiesLibrary">
+<msg time="2024-08-20T00:47:38.788301" level="INFO">${contact_number} = 2347068526306,2347052049544,2349078737496,2348090653681</msg>
+<var>${contact_number}</var>
+<arg>contact_number</arg>
+<status status="PASS" start="2024-08-20T00:47:38.788301" elapsed="0.000000"/>
+</kw>
+<kw name="Get Key" owner="PropertiesLibrary">
+<msg time="2024-08-20T00:47:38.788824" level="INFO">${message} = Text Message for the SMS WEB APP From Automated Test Script</msg>
+<var>${message}</var>
+<arg>message</arg>
+<status status="PASS" start="2024-08-20T00:47:38.788301" elapsed="0.000523"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-20T00:47:43.804014" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-20T00:47:38.788824" elapsed="5.015190"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:43.804014" level="INFO">Typing text 'Bullion' into text field 'id=SenderId'.</msg>
+<arg>id=SenderId</arg>
+<arg>${sender_id}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:43.804014" elapsed="0.060690"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:43.865701" level="INFO">Typing text '2347068526306,2347052049544,2349078737496,2348090653681' into text field 'id=ContactNumber'.</msg>
+<arg>id=ContactNumber</arg>
+<arg>${contact_number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:43.865701" elapsed="0.255443"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:44.121649" level="INFO">Typing text 'Text Message for the SMS WEB APP From Automated Test Script' into text field 'id=Message'.</msg>
+<arg>id=Message</arg>
+<arg>${message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:44.121144" elapsed="0.207116"/>
+</kw>
+<kw name="Send Form">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:44.329324" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(text(), 'Send')]'.</msg>
+<arg>xpath=//button[@type='submit' and contains(text(), 'Send')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:44.329324" elapsed="0.044517"/>
+</kw>
+<status status="PASS" start="2024-08-20T00:47:44.328789" elapsed="0.045052"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-20T00:47:49.385924" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-20T00:47:44.374841" elapsed="5.011083"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-20T00:47:49.385924" level="INFO">Clicking element 'xpath=//div[contains(@class, 'modal-footer')]//button[contains(text(), 'Send')]'.</msg>
+<arg>xpath=//div[contains(@class, 'modal-footer')]//button[contains(text(), 'Send')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-20T00:47:49.385924" elapsed="0.028221"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-08-20T00:47:49.414648" elapsed="2.145822"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2024-08-20T00:47:22.462208" elapsed="29.098262"/>
+</iter>
+<var>${i}</var>
+<value>3</value>
+<status status="PASS" start="2024-08-20T00:46:26.317212" elapsed="85.243258"/>
+</for>
+<status status="PASS" start="2024-08-20T00:46:26.316216" elapsed="85.244254"/>
+</test>
+<status status="PASS" start="2024-08-20T00:46:25.936845" elapsed="85.624622"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-08-20T00:46:25.932845" level="WARN">Error in file 'C:\Users\since\PycharmProjects\SMS_App_Automation\tests\test.robot' on line 83: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
