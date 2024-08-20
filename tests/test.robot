@@ -33,7 +33,7 @@ User Can Login Successfully
             Click Element    xpath=//a[contains(@href, '/Management/ComposeSMS')]
 
              #Fill And Submit Form
-             LoadProperties     ${file_path}
+             LoadProperties     ${CONFIG_FILE}
              ${sender_id}=   Get Key      sender_id
              ${contact_number}=  Get Key    contact_number
              ${message}=     Get Key    message
