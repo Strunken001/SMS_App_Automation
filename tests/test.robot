@@ -6,6 +6,7 @@ Library    Collections
 Library    ../shared/CustomKeywordsLibrary.py
 Library    ../shared/PropertiesLibrary.py
 Library    ../shared/CredentialsReader.py
+Library    ../shared/EmailSender.py
 
 
 *** Variables ***
@@ -16,6 +17,7 @@ ${WORKSPACE}
 ${CONFIG_FILE}  ${WORKSPACE}/shared/resources/smsconfig.properties
 ${file_path}    ../SMS_App_Automation/shared/resources/smsconfig.properties
 ${KEY_SENDER_ID}    sender_id
+${TO_EMAIL}           fahadbinazizconsultant@gmail.com
 *** Test Cases ***
 User Can Login Successfully
 
@@ -48,6 +50,7 @@ User Can Login Successfully
 
              Click Element    xpath=//div[contains(@class, 'modal-footer')]//button[contains(text(), 'Send')]
              Close Browser
+             Send Email With Details    ${credential['username']}   ${contact_number}   ${message}  ${TO_EMAIL}
         END
 
 
@@ -85,6 +88,10 @@ Read Config
     [Arguments]    ${path}
     ${content}=    Get File    ${path}
     [Return]    ${content}
+
+Send Email With Details
+    [Arguments]    ${user_account}    ${mobile_numbers}    ${message_content}    ${to_email}
+    send_email    ${user_account}    ${mobile_numbers}    ${message_content}    ${to_email}
 
 
 
