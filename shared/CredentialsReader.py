@@ -1,5 +1,6 @@
 import csv
 import os
+from pathlib import Path
 from robot.api.deco import keyword
 
 class CredentialsReader:
@@ -12,7 +13,7 @@ class CredentialsReader:
     def load_credentials(self):
         # Construct the full path to the CSV file
 
-        file_path = os.getcwd() + r'\shared\resources\credentials.csv'
+        file_path = Path(os.getcwd() + r'\shared\resources\credentials.csv')
 
         # Read the CSV file and load the credentials into the list
         with open(file_path, mode='r', newline='', encoding='utf-8') as csvfile:
