@@ -19,7 +19,7 @@ def send_email(user_account, mobile_numbers, message_content, to_email):
     msg['Subject'] = "Test Automation Notification Email from SMS_Automation_App"
 
     # Format the email body
-    mobile_numbers_str = ','.join(mobile_numbers)
+    mobile_numbers_str = mobile_numbers
     body = f"Dear Team,\n\nA test was successfully automated on User account: {user_account} to mobile numbers: {mobile_numbers_str} with content: {message_content}.\n\nBest Regards,\nYour Automation Team"
     msg.attach(MIMEText(body, 'plain'))
 
