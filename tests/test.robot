@@ -12,8 +12,9 @@ Library    ../shared/EmailSender.py
 *** Variables ***
 ${LOGIN_URL}    http://164.52.223.184/
 ${BROWSER}      Chrome
-${CREDENTIALS_FILE}     ../SMS_App_Automation/shared/resources/credentials.csv
 ${WORKSPACE}
+${CREDENTIALS_FILE}     ${WORKSPACE}/SMS_App_Automation/shared/resources/credentials.csv
+
 ${CONFIG_FILE}  ${WORKSPACE}/shared/resources/smsconfig.properties
 ${file_path}    ../SMS_App_Automation/shared/resources/smsconfig.properties
 ${KEY_SENDER_ID}    sender_id
