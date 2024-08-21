@@ -17,7 +17,7 @@ ${WORKSPACE}
 ${CONFIG_FILE}  ${WORKSPACE}/shared/resources/smsconfig.properties
 ${file_path}    ../SMS_App_Automation/shared/resources/smsconfig.properties
 ${KEY_SENDER_ID}    sender_id
-${TO_EMAIL}           fahadbinazizconsultant@gmail.com
+${TO_EMAIL}           testnotifications@bullionsms.com
 *** Test Cases ***
 User Can Login Successfully
 
