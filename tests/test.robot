@@ -18,7 +18,7 @@ ${CREDENTIALS_FILE}     ${WORKSPACE}/SMS_App_Automation/shared/resources/credent
 ${CONFIG_FILE}  ${WORKSPACE}/shared/resources/smsconfig.properties
 ${file_path}    ../SMS_App_Automation/shared/resources/smsconfig.properties
 ${KEY_SENDER_ID}    sender_id
-${TO_EMAIL}           testnotifications@bullionsms.com
+${TO_EMAIL}     fahadbinazizconsultant@gmail.com
 *** Test Cases ***
 User Can Login Successfully
 
