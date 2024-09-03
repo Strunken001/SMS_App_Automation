@@ -9,7 +9,7 @@ def send_email(user_account, mobile_numbers, message_content, to_email):
 
     # Login to your email account
     from_email = 'testnotifications@bullionsms.com'
-    password = 'Aramide@1990kohh'
+    password = 'Aramide'
     server.login(from_email, password)
 
     # Create the email
